@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Born level="0">
+
+    <Message>You are a %s</Message>
+    <Possibilities>
+        <Boy></Boy>
+        <Girl></Girl>
+    </Possibilities>
+
+</Born>
