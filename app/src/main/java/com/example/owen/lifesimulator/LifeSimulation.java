@@ -21,10 +21,11 @@ public class LifeSimulation extends AppCompatActivity {
     private int nHappiness = 0;
     private int curLevel = 1;
 
-    Random Randomizer = new Random();
+    private Random Randomizer = new Random();
+    private  XMLParsing XMLParserObj;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_life_simulation);
 
@@ -75,10 +76,25 @@ public class LifeSimulation extends AppCompatActivity {
             e.printStackTrace();
         }
         */
+        try{
 
-        ArrayList<String> SubChoices = GetSubnodes("Possibilities");
-        int nGender = Randomizer.nextInt(2);
-        setMainMessage(SubChoices.get(nGender));
+            Resources res = getResources();
+            XmlResourceParser Stories = res.getXml(R.xml.stories);
+
+            XMLParserObj = new XMLParsing(Stories);
+
+
+            ArrayList<String> SubChoices =XMLParserObj.XMLGetSubnodes("Possibilities");
+            int nGender = Randomizer.nextInt(2);
+            setMainMessage(SubChoices.get(nGender));
+
+        }
+        catch(XmlPullParserException | IOException e)
+        {
+            e.printStackTrace();
+        }
+
+
 
     }
 
@@ -97,41 +113,68 @@ public class LifeSimulation extends AppCompatActivity {
     }
 
     //Returns a list of a subnodes of a node
-    protected ArrayList<String> GetSubnodes(String value)
+    protected ArrayList<String> XMLGetSubnodes(String value)
+            throws XmlPullParserException , IOException
     {
         ArrayList<String> Subnodes = new ArrayList<String>();
 
         Resources res = getResources();
         XmlResourceParser Stories = res.getXml(R.xml.stories);
 
+        int event = Stories.getEventType();
+        while (event != XmlPullParser.END_DOCUMENT) {
 
-        try {
-            int event = Stories.getEventType();
-            while (event != XmlPullParser.END_DOCUMENT) {
+            //System.out.println(name);
+            if(event == XmlPullParser.START_TAG) {
                 String name = Stories.getName();
-                System.out.println(name);
-                if(name != null) {
-                    if (name.equals(value)) {
+                if (name.equals(value)) {
+                    event = Stories.next();
+                    name = Stories.getName();
+                    while (!name.equals(value)) {
+                        if (event == XmlPullParser.START_TAG) {
+                            Subnodes.add(name);
+                        }
                         event = Stories.next();
                         name = Stories.getName();
-                        while (!name.equals(value)) {
-                            if (event == XmlPullParser.START_TAG) {
-                                Subnodes.add(name);
-                            }
-                            event = Stories.next();
-                            name = Stories.getName();
+                    }
+                }
+            }
+            event = Stories.next();
+        }
+        return Subnodes;
+    }
+
+    protected String XMLGetMessageatLevel(int nlevel)
+            throws XmlPullParserException , IOException
+    {
+        Resources res = getResources();
+        XmlResourceParser Stories = res.getXml(R.xml.stories);
+        String sMessage = "blank";
+        int event = Stories.getEventType();
+        while (event != XmlPullParser.END_DOCUMENT) {
+
+
+            if(event == XmlPullParser.START_TAG)
+            {
+                String name = Stories.getName();
+                if(name.equals("Level"))
+                {
+                    int nTagLevel = Stories.getAttributeIntValue(null, "nlevel", -1);
+                    if(nTagLevel == nlevel)
+                    {
+                        while(event != XmlPullParser.END_DOCUMENT)
+                        {
+
                         }
                     }
                 }
-                event = Stories.next();
-            }
-            return Subnodes;
-        }
-        catch (XmlPullParserException | IOException e)
-        {
-            e.printStackTrace();
-        }
 
-        return Subnodes;
+            }
+
+            event = Stories.next();
+        }
+        return sMessage;
+
     }
+
 }

@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Born level="0">
+<Level nlevel="0">
 
-    <Message>You are a %s</Message>
-    <Possibilities>
-        <Boy></Boy>
-        <Girl></Girl>
-    </Possibilities>
+    <Message txt =  "You are a %s">
+        <Possibilities>
+            <Boy></Boy>
+            <Girl></Girl>
+        </Possibilities>
+    </Message>
 
-</Born>
+    <Level nlevel="2">
+
+
+    </Level>
+
+
+</Level>
