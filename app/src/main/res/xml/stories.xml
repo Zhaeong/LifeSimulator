@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Level nlevel="0">
-
-    <Message txt =  "You are a %s">
-        <Possibilities>
-            <Boy></Boy>
-            <Girl></Girl>
-        </Possibilities>
+    <Message txt =  "What is your biological sex?">
+            <ChoiceA happiness = "50" money = "1">Boy</ChoiceA>
+            <ChoiceB happiness = "50" money = "1">Girl</ChoiceB>
     </Message>
-
-    <Level nlevel="2">
-
-
+    <Level nlevel="1">
+        <Message txt = "What type of country do you want to be born in?">
+            <ChoiceA happiness = "50" money = "50">Developed</ChoiceA>
+            <ChoiceB happiness = "50" money = "10">Undeveloped</ChoiceB>
+        </Message>
+        <Message txt = "What is your ancestry?">
+            <ChoiceA happiness = "50" money = "50">Caucasian</ChoiceA>
+            <ChoiceB happiness = "50" money = "10">Minority</ChoiceB>
+        </Message>
+        <Level nlevel="2">
+            <Message txt = "What is your social class?">
+                <ChoiceA happiness = "50" money = "50">Upper</ChoiceA>
+                <ChoiceB happiness = "50" money = "10">Lower</ChoiceB>
+            </Message>
+        </Level>
     </Level>
-
-
 </Level>
