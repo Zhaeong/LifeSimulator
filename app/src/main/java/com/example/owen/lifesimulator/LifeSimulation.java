@@ -17,12 +17,11 @@ import java.util.Random;
 
 public class LifeSimulation extends AppCompatActivity {
     private int curLevel = 0;
+    private int maxLevel = 10;
     private int nHappiness = 0;
 
-
-
     private Random Randomizer = new Random();
-    //private  XMLParsing XMLParserObj;
+
     private ArrayList<String> ChosenMessage;
 
     @Override
@@ -60,20 +59,27 @@ public class LifeSimulation extends AppCompatActivity {
 
     public void ClickedButtonA(View view)
     {
-        curLevel++;
-        int CardHappiness = Integer.parseInt(ChosenMessage.get(2));
-        nHappiness+=CardHappiness;
-        setHappiness(nHappiness);
+        if(curLevel < maxLevel)
+        {
+            curLevel++;
+            int CardHappiness = Integer.parseInt(ChosenMessage.get(2));
+            nHappiness+=CardHappiness;
+            setHappiness(nHappiness);
+            SetCard();
+        }
 
     }
 
     public void ClickedButtonB(View view)
     {
-        curLevel++;
-        int CardHappiness = Integer.parseInt(ChosenMessage.get(5));
-        nHappiness+=CardHappiness;
-        setHappiness(nHappiness);
-        SetCard();
+        if(curLevel < maxLevel)
+        {
+            curLevel++;
+            int CardHappiness = Integer.parseInt(ChosenMessage.get(5));
+            nHappiness+=CardHappiness;
+            setHappiness(nHappiness);
+            SetCard();
+        }
     }
 
     protected void setHappiness(int number)
@@ -82,7 +88,6 @@ public class LifeSimulation extends AppCompatActivity {
         TextView HapText = (TextView) findViewById(R.id.HappinessIndex);
         String sHappiness = Integer.toString(nHappiness);
         HapText.setText(sHappiness);
-        SetCard();
     }
 
     protected void setMainMessage(String sMessage)
