@@ -35,6 +35,8 @@ public class LifeSimulation extends AppCompatActivity {
     public void SetCard()
     {
         try{
+            StoryNode Storyroot = new StoryNode("helloo");
+
 
             Resources res = getResources();
             XmlResourceParser Stories = res.getXml(R.xml.stories);

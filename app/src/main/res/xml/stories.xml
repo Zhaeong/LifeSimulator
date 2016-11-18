@@ -1,123 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+<Message txt =  "What is your biological sex?">
+        <ChoiceA txt = "Boy">
+            <Message txt = "What type of country do you want to be born in?">
+                <ChoiceA txt = "Developed">
 
-<Level nlevel="0">
-    <Message txt =  "What is your biological sex?">
-            <ChoiceA happiness = "50" money = "1">Boy</ChoiceA>
-            <ChoiceB happiness = "50" money = "1">Girl</ChoiceB>
-    </Message>
-    <Level nlevel="1">
-        <Message txt = "What type of country do you want to be born in?">
-            <ChoiceA happiness = "50" money = "50">Developed</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Undeveloped</ChoiceB>
-        </Message>
-        <Message txt = "Are you good looking?">
-            <ChoiceA happiness = "50" money = "0">Yes</ChoiceA>
-            <ChoiceB happiness = "10" money = "0">No</ChoiceB>
-        </Message>
-        <Message txt = "Are you healthy?">
-            <ChoiceA happiness = "50" money = "0">Yes</ChoiceA>
-            <ChoiceB happiness = "10" money = "0">No</ChoiceB>
-        </Message>
-        <Message txt = "Are you smart?">
-            <ChoiceA happiness = "50" money = "0">Yes</ChoiceA>
-            <ChoiceB happiness = "10" money = "0">No</ChoiceB>
-        </Message>
-    </Level>
+                </ChoiceA>
+                <ChoiceB txt = "Undeveloped">
 
-    <Level nlevel="2">
-        <Message txt = "Are your parent's happily married?">
-            <ChoiceA happiness = "50" money = "50">Yes</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">No</ChoiceB>
-        </Message>
-        <Message txt = "Do you wish to get a pet?">
-            <ChoiceA happiness = "50" money = "50">Yes</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">No</ChoiceB>
-        </Message>
-        <Message txt = "Do you have any siblings?">
-            <ChoiceA happiness = "50" money = "50">Yes</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">No</ChoiceB>
-        </Message>
-        <Message txt = "What is your personality?">
-            <ChoiceA happiness = "50" money = "50">Introverted</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Extroverted</ChoiceB>
-        </Message>
-    </Level>
+                </ChoiceB>
+            </Message>
+        </ChoiceA>
+        <ChoiceB txt = "Girl">
+            <Message txt = "Are you good looking?">
+                <ChoiceA txt = "Yes">
 
-    <Level nlevel="3">
-        <Message txt = "What do you enjoy in school?">
-            <ChoiceA happiness = "50" money = "50">Academics</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Athletics</ChoiceB>
-        </Message>
-        <Message txt = "Where does your loyalty lay?">
-            <ChoiceA happiness = "50" money = "50">Friends</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Family</ChoiceB>
-        </Message>
-        <Message txt = "What type of friends do you have?">
-            <ChoiceA happiness = "50" money = "50">Outgoing</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Reserved</ChoiceB>
-        </Message>
-        <Message txt = "Do you get along with your parents">
-            <ChoiceA happiness = "50" money = "50">Yes</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">No</ChoiceB>
-        </Message>
-    </Level>
-    <Level nlevel="4">
-        <Message txt = "What do you want to focus on?">
-            <ChoiceA happiness = "50" money = "50">Career</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Relationships</ChoiceB>
-        </Message>
-        <Message txt = "Do you want to go to university?">
-            <ChoiceA happiness = "50" money = "50">Yes</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">No</ChoiceB>
-        </Message>
-        <Message txt = "When are you most productive?">
-            <ChoiceA happiness = "50" money = "50">Night Owl</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Early Bird</ChoiceB>
-        </Message>
-        <Message txt = "Do you know what you want to do in life?">
-            <ChoiceA happiness = "50" money = "50">Yes</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">No</ChoiceB>
-        </Message>
-    </Level>
-    <Level nlevel="5">
-        <Message txt = "Do you want to have kids?">
-            <ChoiceA happiness = "50" money = "50">Yes</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">No</ChoiceB>
-        </Message>
-        <Message txt = "Do you want to get married?">
-            <ChoiceA happiness = "50" money = "50">Yes</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">No</ChoiceB>
-        </Message>
-    </Level>
-    <Level nlevel="6">
-        <Message txt = "How do you want your subordinates to view you?">
-            <ChoiceA happiness = "50" money = "50">Respected</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Feared</ChoiceB>
-        </Message>
-    </Level>
-    <Level nlevel="7">
-        <Message txt = "How do you complete tasks?">
-            <ChoiceA happiness = "50" money = "50">Plan Ahead</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Mad dash at end</ChoiceB>
-        </Message>
-    </Level>
-    <Level nlevel="8">
-        <Message txt = "Which do you value more?">
-            <ChoiceA happiness = "50" money = "50">Truth</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Equality</ChoiceB>
-        </Message>
-    </Level>
-    <Level nlevel="9">
-        <Message txt = "How do you want to be remembered?">
-            <ChoiceA happiness = "50" money = "50">Legacy</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Family</ChoiceB>
-        </Message>
-    </Level>
-    <Level nlevel="10">
-        <Message txt = "How do you want to die?">
-            <ChoiceA happiness = "50" money = "50">Whimper</ChoiceA>
-            <ChoiceB happiness = "50" money = "10">Bang</ChoiceB>
-        </Message>
-    </Level>
-</Level>
+                </ChoiceA>
+                <ChoiceB txt = "No">
+
+                </ChoiceB>
+
+            </Message>
+        </ChoiceB>
+</Message>
+
 
