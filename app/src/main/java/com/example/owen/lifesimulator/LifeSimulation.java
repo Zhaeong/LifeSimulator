@@ -34,8 +34,12 @@ public class LifeSimulation extends AppCompatActivity {
     }
     public void SetCard()
     {
-        try{
-            StoryNode Storyroot = new StoryNode("helloo");
+        //try{
+            StoryNode Storyroot = new StoryNode("What is your biological sex?", "Boy", "Girl");
+
+            setMainMessage(Storyroot.DisplayMainText());
+            setChoiceA(Storyroot.DisplayAText());
+            setChoiceB(Storyroot.DisplayBText());
 
 
             Resources res = getResources();
@@ -43,19 +47,20 @@ public class LifeSimulation extends AppCompatActivity {
 
             XMLParsing XMLParserObj = new XMLParsing(Stories);
 
-            ArrayList<ArrayList> AllMessage = XMLParserObj.getMessagesForLevel(curLevel);
-            int nMsgNum = Randomizer.nextInt(AllMessage.size());
-            ArrayList<String> ChosenMsg = AllMessage.get(nMsgNum);
-            ChosenMessage = ChosenMsg;
-            setMainMessage(ChosenMsg.get(0));
-            setChoiceA(ChosenMsg.get(1));
-            setChoiceB(ChosenMsg.get(4));
+            //ArrayList<ArrayList> AllMessage = XMLParserObj.getMessagesForLevel(curLevel);
+            //int nMsgNum = Randomizer.nextInt(AllMessage.size());
+            //ArrayList<String> ChosenMsg = AllMessage.get(nMsgNum);
+            //ChosenMessage = ChosenMsg;
+            //setMainMessage(ChosenMsg.get(0));
+            //setChoiceA(ChosenMsg.get(1));
+            //setChoiceB(ChosenMsg.get(4));
 
-        }
-        catch(XmlPullParserException | IOException e)
-        {
-            e.printStackTrace();
-        }
+
+        //}
+        //catch(XmlPullParserException | IOException e)
+        //{
+        //    e.printStackTrace();
+        //}
 
     }
 

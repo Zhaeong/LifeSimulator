@@ -92,55 +92,42 @@ public class XMLParsing {
 
     }
 
-    private ArrayList<String> getMessage()
+    public StoryNode BuildStoryTree()
             throws XmlPullParserException , IOException
     {
-        ArrayList<String> Message = new ArrayList<>();
-        int event = XMLParser.getEventType();
-        //Get Message Text
-        if(event == XmlPullParser.START_TAG)
+        StoryNode rootNode = null;
+
+        int event = XMLParser.next();
+
+        while (event != XmlPullParser.END_DOCUMENT)
         {
-            if("Message".equals(XMLParser.getName()))
+            if(event == XmlPullParser.START_TAG)
             {
-                String Msg = XMLParser.getAttributeValue(null, "txt");
-                Message.add(Msg);
+                String tagName = XMLParser.getName();
+                if("Message".equals(tagName))
+                {
+                    String storyText = XMLParser.getAttributeValue(null, "txt");
+                    if("end".equals(storyText))
+                    {
+                        rootNode = new StoryNode(storyText, null, null);
+                    }
+                    else
+                    {
+                        rootNode = BuildStoryTree();
+                    }
+                }
+
+                if("ChoiceA".equals(tagName))
+                {
+                    String ChoiceAtext = XMLParser.getAttributeValue(null, "txt");
+                }
 
             }
 
         }
-        event = XMLParser.next(); //get ChoiceA
-        if(event == XmlPullParser.START_TAG)
-        {
-            if("ChoiceA".equals(XMLParser.getName()))
-            {
-                String Happiness = XMLParser.getAttributeValue(null, "happiness");
-                String Money = XMLParser.getAttributeValue(null, "money");
-                XMLParser.next();
-                String ChoiceA = XMLParser.getText();
-                Message.add(ChoiceA);
-                Message.add(Happiness);
-                Message.add(Money);
 
-            }
-        }
-        XMLParser.next(); //get ChoiceB
-        event = XMLParser.next();
-        if(event == XmlPullParser.START_TAG)
-        {
-            if("ChoiceB".equals(XMLParser.getName()))
-            {
-                String Happiness = XMLParser.getAttributeValue(null, "happiness");
-                String Money = XMLParser.getAttributeValue(null, "money");
-                XMLParser.next(); //Get choiceB text
-                String ChoiceB = XMLParser.getText();
-                Message.add(ChoiceB);
-                Message.add(Happiness);
-                Message.add(Money);
 
-            }
-        }
-        return Message;
-
+        return  rootNode;
     }
 
 

@@ -3,22 +3,21 @@
         <ChoiceA txt = "Boy">
             <Message txt = "What type of country do you want to be born in?">
                 <ChoiceA txt = "Developed">
-
+                    <Message txt = "end"></Message>
                 </ChoiceA>
                 <ChoiceB txt = "Undeveloped">
-
+                    <Message txt = "end"></Message>
                 </ChoiceB>
             </Message>
         </ChoiceA>
         <ChoiceB txt = "Girl">
             <Message txt = "Are you good looking?">
                 <ChoiceA txt = "Yes">
-
+                    <Message txt = "end"></Message>
                 </ChoiceA>
                 <ChoiceB txt = "No">
-
+                    <Message txt = "end"></Message>
                 </ChoiceB>
-
             </Message>
         </ChoiceB>
 </Message>

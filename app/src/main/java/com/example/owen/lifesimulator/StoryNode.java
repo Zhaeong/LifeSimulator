@@ -10,20 +10,39 @@ import java.util.ArrayList;
 public class StoryNode {
     private String storyText;
     private String ChoiceAText;
-    private String ChoiceBText
-    private ArrayList<StoryNode> subNodes;
+    private String ChoiceBText;
+    private StoryNode subNodeA;
+    private StoryNode subNodeB;
+    private StoryNode parentNode;
 
-    public StoryNode(String nodeValue)
+
+    public StoryNode(String mainText, String ChoiceAtext, String ChoiceBtext)
     {
-        this.storyText = nodeValue;
+        this.storyText = mainText;
+        this.ChoiceAText = ChoiceAtext;
+        this.ChoiceBText = ChoiceBtext;
     }
 
-    public void AddSubNode(StoryNode Node)
+    public void AssignSubnodeA(StoryNode Node)
     {
-        this.subNodes.add(Node);
+        this.subNodeA = Node;
     }
-    public String DisplayValue()
+    public void AssignSubnodeB(StoryNode Node)
+    {
+        this.subNodeB = Node;
+    }
+
+
+    public String DisplayMainText()
     {
         return storyText;
+    }
+    public String DisplayAText()
+    {
+        return ChoiceAText;
+    }
+    public String DisplayBText()
+    {
+        return ChoiceBText;
     }
 }
