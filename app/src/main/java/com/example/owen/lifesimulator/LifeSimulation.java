@@ -24,69 +24,51 @@ public class LifeSimulation extends AppCompatActivity {
 
     private ArrayList<String> ChosenMessage;
 
+    private StoryNode Storyroot;
+    private StoryNode curNode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_life_simulation);
 
         Intent intent = getIntent();
-        SetCard();
-    }
-    public void SetCard()
-    {
-        //try{
-            StoryNode Storyroot = new StoryNode("What is your biological sex?", "Boy", "Girl");
 
-            setMainMessage(Storyroot.DisplayMainText());
-            setChoiceA(Storyroot.DisplayAText());
-            setChoiceB(Storyroot.DisplayBText());
-
+        try{
 
             Resources res = getResources();
             XmlResourceParser Stories = res.getXml(R.xml.stories);
 
             XMLParsing XMLParserObj = new XMLParsing(Stories);
 
-            //ArrayList<ArrayList> AllMessage = XMLParserObj.getMessagesForLevel(curLevel);
-            //int nMsgNum = Randomizer.nextInt(AllMessage.size());
-            //ArrayList<String> ChosenMsg = AllMessage.get(nMsgNum);
-            //ChosenMessage = ChosenMsg;
-            //setMainMessage(ChosenMsg.get(0));
-            //setChoiceA(ChosenMsg.get(1));
-            //setChoiceB(ChosenMsg.get(4));
+            StoryNode Storyroot = XMLParserObj.BuildStoryTree();
+            curNode = Storyroot;
+            SetCard();
 
+        }
+        catch(XmlPullParserException | IOException e)
+        {
+            e.printStackTrace();
+        }
 
-        //}
-        //catch(XmlPullParserException | IOException e)
-        //{
-        //    e.printStackTrace();
-        //}
-
+    }
+    public void SetCard()
+    {
+        setMainMessage(curNode.DisplayMainText());
+        setChoiceA(curNode.DisplayAText());
+        setChoiceB(curNode.DisplayBText());
     }
 
     public void ClickedButtonA(View view)
     {
-        if(curLevel < maxLevel)
-        {
-            curLevel++;
-            int CardHappiness = Integer.parseInt(ChosenMessage.get(2));
-            nHappiness+=CardHappiness;
-            setHappiness(nHappiness);
-            SetCard();
-        }
-
+        curNode =  curNode.GetSubnodeA();
+        SetCard();
     }
 
     public void ClickedButtonB(View view)
     {
-        if(curLevel < maxLevel)
-        {
-            curLevel++;
-            int CardHappiness = Integer.parseInt(ChosenMessage.get(5));
-            nHappiness+=CardHappiness;
-            setHappiness(nHappiness);
-            SetCard();
-        }
+        curNode =  curNode.GetSubnodeB();
+        SetCard();
     }
 
     protected void setHappiness(int number)
@@ -114,7 +96,4 @@ public class LifeSimulation extends AppCompatActivity {
         Button ButtonA = (Button) findViewById(R.id.button_B);
         ButtonA.setText(ChoiceB);
     }
-
-
-
 }

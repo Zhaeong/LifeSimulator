@@ -1,5 +1,7 @@
 package com.example.owen.lifesimulator;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -13,7 +15,6 @@ public class StoryNode {
     private String ChoiceBText;
     private StoryNode subNodeA;
     private StoryNode subNodeB;
-    private StoryNode parentNode;
 
 
     public StoryNode(String mainText, String ChoiceAtext, String ChoiceBtext)
@@ -30,6 +31,27 @@ public class StoryNode {
     public void AssignSubnodeB(StoryNode Node)
     {
         this.subNodeB = Node;
+    }
+
+    public StoryNode GetSubnodeA()
+    {
+        return subNodeA;
+    }
+    public StoryNode GetSubnodeB()
+    {
+        return subNodeB;
+    }
+
+    public void AssignTextA(String TextA)
+    {
+        if(!TextA.isEmpty())
+            ChoiceAText = TextA;
+    }
+
+    public void AssignTextB(String TextB)
+    {
+        if(!TextB.isEmpty())
+            ChoiceBText = TextB;
     }
 
 

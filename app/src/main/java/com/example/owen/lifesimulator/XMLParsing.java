@@ -52,45 +52,6 @@ public class XMLParsing {
         return Subnodes;
     }
 
-    public ArrayList<ArrayList>getMessagesForLevel(int nLevel)
-            throws XmlPullParserException , IOException
-    {
-        ArrayList<ArrayList> MessagesArray = new ArrayList<>();
-        int event = XMLParser.getEventType();
-        String sLevel = "Level" + Integer.toString(nLevel);
-
-        while (event != XmlPullParser.END_DOCUMENT)
-        {
-            if(event == XmlPullParser.START_TAG)
-            {
-                if("Level".equals(XMLParser.getName()))
-                {
-                    String sLevelNumber = XMLParser.getAttributeValue(null, "nlevel");
-                    if(Integer.parseInt(sLevelNumber) == nLevel)
-                    {
-                        event = XMLParser.next();
-                        while (!"Level".equals(XMLParser.getName()))
-                        {
-                            if(event == XmlPullParser.START_TAG)
-                            {
-                                if("Message".equals(XMLParser.getName()))
-                                {
-                                    ArrayList<String> Message = getMessage();
-                                    MessagesArray.add(Message);
-                                }
-                            }
-                            String namer = XMLParser.getName();
-                            event = XMLParser.next();
-
-                        }
-                    }
-                }
-            }
-            event = XMLParser.next();
-        }
-        return MessagesArray;
-
-    }
 
     public StoryNode BuildStoryTree()
             throws XmlPullParserException , IOException
@@ -109,20 +70,39 @@ public class XMLParsing {
                     String storyText = XMLParser.getAttributeValue(null, "txt");
                     if("end".equals(storyText))
                     {
-                        rootNode = new StoryNode(storyText, null, null);
+                        return null;
                     }
                     else
                     {
-                        rootNode = BuildStoryTree();
+                        rootNode = new StoryNode(storyText, null, null);
                     }
                 }
 
                 if("ChoiceA".equals(tagName))
                 {
                     String ChoiceAtext = XMLParser.getAttributeValue(null, "txt");
+                    rootNode.AssignTextA(ChoiceAtext);
+                    rootNode.AssignSubnodeA(BuildStoryTree());
+                }
+
+                if("ChoiceB".equals(tagName))
+                {
+                    String ChoiceAtext = XMLParser.getAttributeValue(null, "txt");
+                    rootNode.AssignTextB(ChoiceAtext);
+                    rootNode.AssignSubnodeB(BuildStoryTree());
                 }
 
             }
+
+            if(event == XmlPullParser.END_TAG)
+            {
+                String tagName = XMLParser.getName();
+                if("ChoiceB".equals(tagName))
+                {
+                    return rootNode;
+                }
+            }
+            event = XMLParser.next();
 
         }
 
