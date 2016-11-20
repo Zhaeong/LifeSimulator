@@ -13,12 +13,20 @@
         <ChoiceB txt = "No">
             <Message txt = "Well how did that lamp break then?">
                 <ChoiceA txt = "I don't know">
-                    <Message txt = "Well you were the only one home, so give me an explanation.">
+                    <Message txt = "You were the only one home, so give me an explanation.">
                         <ChoiceA txt = "The window was open and a breeze blew it off the table">
                             <Message txt = "end"></Message>
                         </ChoiceA>
                         <ChoiceB txt = "But I don't know">
-                            <Message txt = "end"></Message>
+                            <Message txt = "How can you not know?">
+                                <ChoiceB txt = "I'm sorry">
+                                    <Message txt = "Why are you apologizing?">
+                                        <ChoiceB txt = "I accidentally knocked it off the table">
+                                            <Message txt = "end"></Message>
+                                        </ChoiceB>
+                                    </Message>
+                                </ChoiceB>
+                            </Message>
                         </ChoiceB>
                     </Message>
                 </ChoiceA>

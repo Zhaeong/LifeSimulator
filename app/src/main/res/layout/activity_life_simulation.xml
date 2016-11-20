@@ -25,36 +25,36 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/MainMessage" />
+            android:id="@+id/MainMessage"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="24sp" />
 
         <Button
-            android:text="eg"
+            android:text="eA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button_A"
-            android:layout_below="@+id/MainMessage"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="25dp"
             android:onClick="ClickedButtonA"
             android:textAlignment="viewStart"
+            android:layout_gravity="start"
             android:textAllCaps="false"
             android:elevation="0dp"
-            android:minWidth="20dip" />
+            android:minWidth="20dip"
+            android:layout_below="@+id/button_B" />
 
         <Button
-            android:text="eg"
+            android:text="eB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button_B"
             android:onClick="ClickedButtonB"
-            android:layout_below="@+id/button_A"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="17dp"
             android:textAlignment="viewStart"
+            android:layout_gravity="start"
             android:textAllCaps="false"
-            android:minWidth="20dip" />
+            android:minWidth="20dip"
+            android:layout_below="@+id/MainMessage"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 

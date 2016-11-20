@@ -9,62 +9,84 @@ import java.util.ArrayList;
  * A story tree obj to easily traverse the story
  */
 
-public class StoryNode {
-    private String storyText;
-    private String ChoiceAText;
-    private String ChoiceBText;
-    private StoryNode subNodeA;
-    private StoryNode subNodeB;
+class StoryNode {
+    String storyText;
+    String ChoiceAText;
+    String ChoiceBText;
+    StoryNode subNodeA;
+    StoryNode subNodeB;
 
 
-    public StoryNode(String mainText, String ChoiceAtext, String ChoiceBtext)
+    StoryNode(String mainText, String ChoiceAtext, String ChoiceBtext)
     {
         this.storyText = mainText;
         this.ChoiceAText = ChoiceAtext;
         this.ChoiceBText = ChoiceBtext;
     }
 
-    public void AssignSubnodeA(StoryNode Node)
+    void AssignSubnodeA(StoryNode Node)
     {
         this.subNodeA = Node;
     }
-    public void AssignSubnodeB(StoryNode Node)
+    void AssignSubnodeB(StoryNode Node)
     {
         this.subNodeB = Node;
     }
 
-    public StoryNode GetSubnodeA()
+    StoryNode GetSubnodeA()
     {
         return subNodeA;
     }
-    public StoryNode GetSubnodeB()
+    StoryNode GetSubnodeB()
     {
         return subNodeB;
     }
 
-    public void AssignTextA(String TextA)
+    void AssignTextA(String TextA)
     {
         if(!TextA.isEmpty())
             ChoiceAText = TextA;
     }
 
-    public void AssignTextB(String TextB)
+    void AssignTextB(String TextB)
     {
         if(!TextB.isEmpty())
             ChoiceBText = TextB;
     }
 
 
-    public String DisplayMainText()
+    String DisplayMainText()
     {
-        return storyText;
+        if(storyText == null)
+        {
+            return "";
+        }
+        else
+        {
+            return storyText;
+        }
+
     }
-    public String DisplayAText()
+    String DisplayAText()
     {
-        return ChoiceAText;
+        if(ChoiceAText == null)
+        {
+            return "";
+        }
+        else
+        {
+            return ChoiceAText;
+        }
     }
-    public String DisplayBText()
+    String DisplayBText()
     {
-        return ChoiceBText;
+        if(ChoiceBText == null)
+        {
+            return "";
+        }
+        else
+        {
+            return ChoiceBText;
+        }
     }
 }

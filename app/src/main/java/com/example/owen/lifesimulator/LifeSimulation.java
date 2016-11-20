@@ -50,9 +50,28 @@ public class LifeSimulation extends AppCompatActivity {
     }
     public void SetCard()
     {
+        if(curNode.DisplayAText().isEmpty())
+        {
+            Button ButtonA = (Button) findViewById(R.id.button_A);
+            ButtonA.setVisibility(View.INVISIBLE);
+        }
+        else {
+            setChoiceA(curNode.DisplayAText());
+        }
+
+        if(curNode.DisplayBText().isEmpty())
+        {
+            Button ButtonB = (Button) findViewById(R.id.button_B);
+            ButtonB.setVisibility(View.INVISIBLE);
+        }
+        else
+        {
+            setChoiceB(curNode.DisplayBText());
+        }
+
         setMainMessage(curNode.DisplayMainText());
-        setChoiceA(curNode.DisplayAText());
-        setChoiceB(curNode.DisplayBText());
+
+
     }
 
     public void ClickedButtonA(View view)
@@ -62,8 +81,6 @@ public class LifeSimulation extends AppCompatActivity {
             curNode =  curNode.GetSubnodeA();
             SetCard();
         }
-
-
     }
 
     public void ClickedButtonB(View view)
