@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Message txt =  "What is your biological sex?">
-        <ChoiceA txt = "Boy">
-            <Message txt = "What type of country do you want to be born in?">
-                <ChoiceA txt = "Developed">
+<Message txt =  "Did you break that lamp?">
+        <ChoiceA txt = "Yes">
+            <Message txt = "How did that happen?">
+                <ChoiceA txt = "It was an accident">
                     <Message txt = "end"></Message>
                 </ChoiceA>
-                <ChoiceB txt = "Undeveloped">
+                <ChoiceB txt = "I wanted to break it">
                     <Message txt = "end"></Message>
                 </ChoiceB>
             </Message>
         </ChoiceA>
-        <ChoiceB txt = "Girl">
-            <Message txt = "Are you good looking?">
-                <ChoiceA txt = "Yes">
-                    <Message txt = "end"></Message>
+        <ChoiceB txt = "No">
+            <Message txt = "Well how did that lamp break then?">
+                <ChoiceA txt = "I don't know">
+                    <Message txt = "Well you were the only one home, so give me an explanation.">
+                        <ChoiceA txt = "The window was open and a breeze blew it off the table">
+                            <Message txt = "end"></Message>
+                        </ChoiceA>
+                        <ChoiceB txt = "But I don't know">
+                            <Message txt = "end"></Message>
+                        </ChoiceB>
+                    </Message>
                 </ChoiceA>
-                <ChoiceB txt = "No">
+                <ChoiceB txt = "Someone else did it">
                     <Message txt = "end"></Message>
                 </ChoiceB>
             </Message>

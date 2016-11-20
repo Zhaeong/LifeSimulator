@@ -16,10 +16,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class LifeSimulation extends AppCompatActivity {
-    private int curLevel = 0;
-    private int maxLevel = 10;
-    private int nHappiness = 0;
-
     private Random Randomizer = new Random();
 
     private ArrayList<String> ChosenMessage;
@@ -41,7 +37,7 @@ public class LifeSimulation extends AppCompatActivity {
 
             XMLParsing XMLParserObj = new XMLParsing(Stories);
 
-            StoryNode Storyroot = XMLParserObj.BuildStoryTree();
+            Storyroot = XMLParserObj.BuildStoryTree();
             curNode = Storyroot;
             SetCard();
 
@@ -61,22 +57,23 @@ public class LifeSimulation extends AppCompatActivity {
 
     public void ClickedButtonA(View view)
     {
-        curNode =  curNode.GetSubnodeA();
-        SetCard();
+        if(curNode.GetSubnodeA() != null)
+        {
+            curNode =  curNode.GetSubnodeA();
+            SetCard();
+        }
+
+
     }
 
     public void ClickedButtonB(View view)
     {
-        curNode =  curNode.GetSubnodeB();
-        SetCard();
-    }
+        if(curNode.GetSubnodeB() != null)
+        {
+            curNode =  curNode.GetSubnodeB();
+            SetCard();
+        }
 
-    protected void setHappiness(int number)
-    {
-        nHappiness = number;
-        TextView HapText = (TextView) findViewById(R.id.HappinessIndex);
-        String sHappiness = Integer.toString(nHappiness);
-        HapText.setText(sHappiness);
     }
 
     protected void setMainMessage(String sMessage)
